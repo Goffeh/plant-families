@@ -1,6 +1,6 @@
 // Offline support. Change VERSION each time you upload a new index.html,
 // so phones download the new data.
-const VERSION = 'plant-families-v5-1';
+const VERSION = 'plant-families-20261125-1021';
 const FILES = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(VERSION).then(c => c.addAll(FILES))); self.skipWaiting(); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k !== VERSION).map(k => caches.delete(k))))); self.clients.claim(); });
